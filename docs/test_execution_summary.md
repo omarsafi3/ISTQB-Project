@@ -60,6 +60,30 @@ Detected bugs:
 
 ## Reports
 
+## Presentation Mode
+
+The framework includes a small delay between Selenium actions so the browser movement can be observed during the presentation.
+
+Default delay:
+
+```text
+PRESENTATION_DELAY=0.7 seconds
+```
+
+Use a slower demo speed:
+
+```powershell
+$env:PRESENTATION_DELAY='1.5'
+pytest tests/test_signup.py tests/test_login.py tests/test_products.py tests/test_cart.py tests/test_checkout.py tests/test_contact.py
+```
+
+Use fast execution:
+
+```powershell
+$env:PRESENTATION_DELAY='0'
+pytest
+```
+
 ## Final Complete Suite Execution
 
 Command:

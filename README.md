@@ -2,7 +2,7 @@
 
 ## Objective
 
-This university project was created for the course **Test Logiciel / ISTQB**.  
+This university project was created for the course **Test Logiciel / ISTQB**.
 The objective is to test a web application using classic functional testing and Selenium automation, then compare the work before and after assistance from Generative AI.
 
 ## Tested Website
@@ -32,15 +32,15 @@ The objective is to test a web application using classic functional testing and 
 
 ```text
 demoblaze-selenium-testing/
-├── README.md
-├── requirements.txt
-├── pytest.ini
-├── tests/
-├── pages/
-├── utils/
-├── docs/
-└── reports/
-    └── screenshots/
+|-- README.md
+|-- requirements.txt
+|-- pytest.ini
+|-- tests/
+|-- pages/
+|-- utils/
+|-- docs/
+`-- reports/
+    `-- screenshots/
 ```
 
 ## Installation
@@ -112,12 +112,36 @@ Generate a clean passing report for functional tests:
 pytest tests/test_signup.py tests/test_login.py tests/test_products.py tests/test_cart.py tests/test_checkout.py tests/test_contact.py --html=reports/functional_tests_report.html --self-contained-html
 ```
 
+## Presentation Mode
+
+The framework includes a small delay between Selenium actions so the browser movement can be observed during the presentation.
+
+Default delay:
+
+```text
+PRESENTATION_DELAY=0.7 seconds
+```
+
+To make the demo slower:
+
+```powershell
+$env:PRESENTATION_DELAY='1.5'
+pytest tests/test_signup.py tests/test_login.py tests/test_products.py tests/test_cart.py tests/test_checkout.py tests/test_contact.py
+```
+
+To run faster again:
+
+```powershell
+$env:PRESENTATION_DELAY='0'
+pytest
+```
+
 ## How To Generate Reports
 
-Generate an HTML report:
+Generate a full HTML report:
 
 ```bash
-pytest --html=reports/report.html --self-contained-html
+pytest --html=reports/full_test_report.html --self-contained-html
 ```
 
 Screenshots are automatically saved in `reports/screenshots/` when a test fails.
@@ -142,3 +166,4 @@ Screenshots are automatically saved in `reports/screenshots/` when a test fails.
 - The signup test generates a unique username to avoid duplicate user errors.
 - Do not invent bugs in the final report. Use the bug template only for verified defects or clearly mark items as **Potential bug / observation** until confirmed.
 - Use `docs/bug_reports.md` to document suspicious behavior found during exploratory testing.
+
